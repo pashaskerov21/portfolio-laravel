@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-12">
             <div class="page-title-box">
-                <h4 class="page-title">Category Düzəliş et</h4>
+                <h4 class="page-title">Project Düzəliş et</h4>
             </div>
         </div>
     </div>
@@ -42,9 +42,10 @@
                         <div class="mb-3">
                             <label class="form-label">image</label>
                             <input type="file" class="form-control" name="image" value="">
+                            <input type="hidden" value="{{$project->image_old}}" name="image_old">
                             @if ($project->image)
                                 <div class="image-review">
-                                    <img src="{{asset('uploads/projects/'.$project->image)}}" alt="">
+                                    <img src="{{asset('uploads/projects/'.$project->image_old)}}" alt="">
                                 </div>
                             @endif
                         </div>

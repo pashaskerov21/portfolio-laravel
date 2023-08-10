@@ -47,6 +47,7 @@ class ProjectController extends Controller
             'category_id' => $request->category_id,
             'name' => $request->name,
             'image' => $project_img,
+            'image_old' => $project_img,
             'preview_link' => $request->preview_link,
             'github_link' => $request->github_link,
             'github_status' => $request->github_status,
@@ -89,7 +90,7 @@ class ProjectController extends Controller
             $project_img = time() . $file->getClientOriginalName();
             $file->move('uploads/projects', $project_img);
         }else{
-            $project_img = null;
+            $project_img = $request->image_old;
         }
         $project = Project::findOrFail($id);
         $project->category_id = $request->category_id;
