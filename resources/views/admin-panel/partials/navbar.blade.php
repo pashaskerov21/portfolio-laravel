@@ -78,7 +78,7 @@
                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated profile-dropdown">
 
                     <!-- item-->
-                    <a href="{{route('admin.account.edit')}}" class="dropdown-item">
+                    <a href="{{route('admin.account.edit',Auth::user()->id)}}" class="dropdown-item">
                         <i class="mdi mdi-account-circle me-1"></i>
                         <span>My Account</span>
                     </a>

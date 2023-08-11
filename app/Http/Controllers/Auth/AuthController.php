@@ -53,7 +53,7 @@ class AuthController extends Controller
 
     public function edit(string $id)
     {
-        $admin = Auth::user();
+        $admin = User::findOrFail($id);
         return view('admin-panel.auth.edit', compact('admin'));
     }
 
@@ -65,7 +65,7 @@ class AuthController extends Controller
         ]);
 
 
-        $admin = User::findOrFail(Auth::user()->id);
+        $admin = User::findOrFail($id);
 
         if (Hash::check($request->current_password, $admin->password)) {
             $admin->name = $request->name;
@@ -74,9 +74,9 @@ class AuthController extends Controller
                 $admin->password = Hash::make($request->new_password);
             }
             $admin->save();
-            return redirect()->route('admin.account')->with('success', 'Dəyişikliklər uğurla yadda saxlanıldı');
+            return redirect()->bacK()->with('success', 'Dəyişikliklər uğurla yadda saxlanıldı');
         } else {
-            return redirect()->route('admin.account')->with('current_password-error', 'Mövcud şifrə düzgün deyil');
+            return redirect()->back()->with('current_password-error', 'Mövcud şifrə düzgün deyil');
         }
     }
 

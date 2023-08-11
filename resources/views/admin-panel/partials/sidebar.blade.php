@@ -35,7 +35,7 @@
     <div class="h-100" id="leftside-menu-container" data-simplebar>
         <!-- Leftbar User -->
         <div class="leftbar-user">
-            <a href="pages-profile.html">
+            <a href="{{route('admin.account.edit', Auth::user()->id)}}">
                 <img src="{{asset('admin-assets/images/users/avatar-1.jpg')}}" alt="user-image" height="42"
                     class="rounded-circle shadow-sm">
                 <span class="leftbar-user-name mt-2">{{Auth::user()->name}}</span>

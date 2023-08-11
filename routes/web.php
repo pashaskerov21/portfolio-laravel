@@ -26,9 +26,8 @@ Route::group(['prefix' => '/admin', 'as' => 'admin.'], function () {
     });
     Route::group(['middleware' => 'notLogin'], function () {
         Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
-        Route::get('/account', [AuthController::class, 'edit'])->name('account.edit');
-        Route::post('/account', [AuthController::class, 'update'])->name('account.update');
         
+        Route::resource('account', AuthController::class);
         Route::resource('users', UserController::class);
 
         Route::get('/', [DashboardController::class, 'index'])->name('dashboard');

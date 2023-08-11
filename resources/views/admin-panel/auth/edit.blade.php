@@ -10,8 +10,9 @@
     </div>
     <div class="card">
         <div class="card-body">
-            <form action="{{ route('admin.account.update') }}" method="POST">
+            <form action="{{ route('admin.account.update',Auth::user()->id) }}" method="POST">
                 @csrf
+                @method('PUT')
                 <div class="row">
                     @if (session('success'))
                         <div class="col-12">
