@@ -38,6 +38,7 @@
                     <tr>
                         <th style="width: 100px">#</th>
                         <th>Name</th>
+                        <th>Category</th>
                         <th style="width: 150px">Action</th>
                         <th style="width: 100px"></th>
                     </tr>
@@ -47,6 +48,7 @@
                         <tr id="sort_{{ $project->id }}">
                             <td>{{ $loop->index + 1 }}</td>
                             <td>{{ $project->name }}</td>
+                            <td>{{ $project->category->name }}</td>
                             <td class="table-action d-flex" style="height: 70px">
                                 <a href="{{route('admin.projects.edit', $project->id)}}" class="action-icon me-1"> <i class="mdi mdi-square-edit-outline"></i></a>
                                 <form action="{{ route('admin.projects.destroy', $project->id) }}" method="post">
